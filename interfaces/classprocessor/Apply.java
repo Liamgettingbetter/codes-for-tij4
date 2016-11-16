@@ -40,12 +40,13 @@ class Splitter extends Processor {
 }
 
 public class Apply {
+    public static String s =
+            "Disagreement with beliefs is by definition incorrect";
+
     public static void process(Processor p, Object s) {
         out.println("Using Processor " + p.name());
         out.println(p.process(s));
     }
-    public static String s =
-            "Disagreement with beliefs is by definition incorrect";
 
     public static void main(String[] args) {
         process(new Upcase(), s);
