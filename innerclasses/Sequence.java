@@ -27,6 +27,7 @@ public class Sequence {
 
         @Override
         public boolean end() {
+            // 内部类能访问外部累的私有数据
             return i == items.length;
         }
 
