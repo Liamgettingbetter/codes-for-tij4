@@ -7,8 +7,8 @@ import practice.innerclasses.practice6.package2.B;
  * Created by Liam on 18/11/2016.
  */
 public class C extends B {
-    void inner() {
+    A inner() {
         B b = new B();
-        // return (A)(new InnerB());
+        return b.returnInnerB();
     }
 }

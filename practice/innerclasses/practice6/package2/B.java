@@ -13,4 +13,8 @@ public class B {
             out.println("InnerB.f()");
         }
     }
+
+    public InnerB returnInnerB() {
+        return new InnerB();
+    }
 }
