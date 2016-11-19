@@ -9,6 +9,11 @@ import practice.innerclasses.practice6.package2.B;
 public class C extends B {
     A inner() {
         B b = new B();
-        return b.returnInnerB();
+        return (A)(b.returnInnerB());
+    }
+
+
+    public static void main(String[] args) {
+        //A a = new C().inner();
     }
 }

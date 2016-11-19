@@ -8,13 +8,14 @@ import static java.lang.System.out;
  */
 public class B {
     protected class InnerB implements A {
+        protected int i = 1;
         @Override
         public void f() {
             out.println("InnerB.f()");
         }
     }
 
-    public InnerB returnInnerB() {
+    protected InnerB returnInnerB() {
         return new InnerB();
     }
 }
