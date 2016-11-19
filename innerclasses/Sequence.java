@@ -3,8 +3,13 @@ package innerclasses;
 /**
  * Created by Liam on 16/11/2016.
  */
+interface Selector {
+    boolean end();
+    Object current();
+    void next();
+}
+
 public class Sequence {
-<<<<<<< HEAD
     private Object[] items;
     private int next = 0;
 
@@ -56,6 +61,4 @@ public class Sequence {
             s.next();
         }
     }
-=======
->>>>>>> parent of 82f6bce... updates
 }
