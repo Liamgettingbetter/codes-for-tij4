@@ -6,7 +6,7 @@ import innerclasses.controller.Controller;
 /**
  * Created by Liam on 21/11/2016.
  */
-public class GreeenHouseControls extends Controller {
+public class GreenHouseControls extends Controller {
     private boolean light = false;
     public class LightOn extends Event {
         public LightOn(long delayTime) {
@@ -136,7 +136,7 @@ public class GreeenHouseControls extends Controller {
             super(delayTime);
             this.eventList = eventList;
             for(Event e : eventList)
-                GreeenHouseControls.this.addEvent(e);
+                GreenHouseControls.this.addEvent(e);
         }
 
         @Override

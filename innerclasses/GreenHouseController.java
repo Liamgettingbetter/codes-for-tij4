@@ -7,7 +7,7 @@ import innerclasses.controller.Event;
  */
 public class GreenHouseController {
     public static void main(String[] args) {
-        GreeenHouseControls gc = new GreeenHouseControls();
+        GreenHouseControls gc = new GreenHouseControls();
         // Instead of hard-writing, you could parse
         // configuration information from a text file here
         gc.addEvent(gc.new Bell(900));
@@ -22,7 +22,7 @@ public class GreenHouseController {
         gc.addEvent(gc.new Restart(2000, eventList));
 
         if(args.length == 1)
-            gc.addEvent(new GreeenHouseControls.Terminate(
+            gc.addEvent(new GreenHouseControls.Terminate(
                     new Integer(args[0])));
         gc.run();
     }
