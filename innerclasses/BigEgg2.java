@@ -21,7 +21,7 @@ class Egg2 {
     }
 
     public void insertYolk(Yolk yy) {
-        y = yy;
+         //y = yy;
     }
 
     public void g() {
