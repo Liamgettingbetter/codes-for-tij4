@@ -8,6 +8,6 @@ import java.util.Collection;
  */
 public class Practice2 {
     public static void main(String[] args) {
-        Collection<Integer> c = new Set<>();
+        //Collection<Integer> c = new Set<>();
     }
 }
