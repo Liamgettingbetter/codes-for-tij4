@@ -22,6 +22,7 @@ public class Practice27 {
     private class Tools {
         private Queue<Command> queue = new LinkedList<>();
 
+
         private Command inflate(Command obj) {
             queue.offer(obj);
             return obj;
