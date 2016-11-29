@@ -11,7 +11,7 @@ public class Practice29 {
     public static void main(String[] args) {
         PriorityQueue<Simple> queue = new PriorityQueue<>();
 
-        for(int i = 0; i < 5; i++)
+        //for(int i = 0; i < 5; i++)
             //queue.offer(new Simple());
     }
 }
