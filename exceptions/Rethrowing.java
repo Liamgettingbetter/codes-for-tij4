@@ -25,7 +25,7 @@ public class Rethrowing {
             f();
         } catch(Exception e) {
             System.out.println("Inside h(), e.printStackTrace()");
-            e.printStackTrace();
+            e.printStackTrace(System.out);
             throw (Exception)e.fillInStackTrace();
         }
     }
