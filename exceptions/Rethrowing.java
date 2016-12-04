@@ -35,7 +35,7 @@ public class Rethrowing {
             g();
         }
         catch(Exception e) {
-            System.out.println("main : + printStackTrace()");
+            System.out.println("main : + printStackTrace()" );
             e.printStackTrace(System.out);
         }
 
