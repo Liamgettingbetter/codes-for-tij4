@@ -21,13 +21,15 @@ public class RethrowNew {
         try {
             try {
                 f();
-            } catch(OneException e) {
+            }
+            catch(OneException e) {
                 System.out.println("Caught in inner try, " +
                         "e.printStackTrace()");
                 e.printStackTrace(System.out);
                 throw new TwoException("from inner try");
             }
-        } catch(TwoException e) {
+        }
+        catch(TwoException e) {
             System.out.println("Caught in outer try, e.printStackTrace()");
             e.printStackTrace(System.out);
         }
