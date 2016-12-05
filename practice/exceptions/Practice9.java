@@ -53,7 +53,8 @@ public class Practice9 {
     public static void main(String[] args) {
         try {
             throw_();
-        } catch(MyException e) {
+        }
+        catch(MyException e) {
             e.getE1().printStackTrace();
             e.getE2().printStackTrace();
             e.getE3().printStackTrace();
