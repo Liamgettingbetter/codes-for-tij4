@@ -30,7 +30,7 @@ public class Practice25 {
     public static void main(String[] args) {
         A a = new C();
         try {
-            a.a();
+            a.a();  // dynamic binding occurs
         }
         catch(BaseException e) {
             System.out.println(e);
