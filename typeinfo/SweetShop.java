@@ -28,7 +28,8 @@ public class SweetShop {
         System.out.println("After creating Candy");
 
         try {
-            Class.forName("Gum");
+            // Class.forName(String class_name) 需要使用完整的类路径名
+            Class.forName("typeinfo.Gum");
         }
         catch(ClassNotFoundException e) {
             System.out.println("Couldn't find Gum");
