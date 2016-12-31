@@ -27,6 +27,7 @@ public class ToyTest {
             " is interface? [" + c.isInterface() + "]");
         out.println("Simple name : " + c.getSimpleName());
         out.println("Canonical name : " + c.getCanonicalName());
+        out.println();
     }
 
     public static void main(String[] args) {
