@@ -1,5 +1,7 @@
 package practice.typeinfo;
 
+import java.util.Scanner;
+
 /**
  * Created by Liam on 05/01/2017.
  */
