@@ -9,6 +9,9 @@ import typeinfo.factory.Factory;
  * Created by Liam on 06/02/2017.
  */
 class Part {
+    
+    private static Random rand = new Random(47);
+
     static List<Factory<? extends Part>> partFactories =
             new ArrayList<>();
 
@@ -24,7 +27,7 @@ class Part {
         partFactories.add(new GeneratorBelt.Factory());
     }
 
-    private static Random rand = new Random(47);
+
 
     public static Part createRandom() {
         int n = rand.nextInt(partFactories.size());
@@ -114,7 +117,7 @@ class PowerSteeringBelt extends Belt {
 
 public class RegisteredFactories {
     public static void main(String[] args) {
-        int limit = Integer.parseInt(args[1]);
+        int limit = Integer.parseInt("10");
         for(int i = 0; i < limit; i++) {
             System.out.println(Part.createRandom());
         }
