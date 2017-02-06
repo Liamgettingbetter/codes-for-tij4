@@ -32,39 +32,19 @@ class Part {
 
         return null;
     }
-}
 
-class A extends Part {
     @Override
     public String toString() {
-        return "A";
-    }
-}
-class B extends Part {
-    @Override
-    public String toString() {
-        return "B";
+        return getClass().getSimpleName();
     }
 }
 
-class A1 extends A {
-    @Override
-    public String toString() {
-        return "A1";
-    }
-}
-class B1 extends B {
-    @Override
-    public String toString() {
-        return "B1";
-    }
-}
-class C extends B {
-    @Override
-    public String toString() {
-        return "C";
-    }
-}
+class A extends Part {}
+class B extends Part {}
+
+class A1 extends A {}
+class B1 extends B {}
+class C extends B {}
 
 public class Practice14 {
     public static void main(String[] args) {
