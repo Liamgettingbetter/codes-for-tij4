@@ -1,8 +1,8 @@
 package typeinfo;
 
+import java.lang.reflect.Proxy;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Proxy;
 
 /**
  * Created by Liam on 07/02/2017.
