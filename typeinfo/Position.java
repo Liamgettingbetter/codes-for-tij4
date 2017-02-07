@@ -14,7 +14,7 @@ public class Position {
     }
 
     public Position(String jobTitle) {
-        title = jobTitle;
+        this.title = jobTitle;
         this.person = Person.NULL;
     }
 
@@ -38,7 +38,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position : " + title + " " + person;
+        return "Position : " + title + " " + person + "\n";
     }
 
 

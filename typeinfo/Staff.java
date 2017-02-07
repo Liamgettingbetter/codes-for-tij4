@@ -23,7 +23,7 @@ public class Staff extends ArrayList<Position> {
     public boolean positionAvailable(String title) {
         for(Position p : this)
             if(p.getTitle().equals(title)
-                    && p.getPerson().equals(Person.NULL))
+                    && p.getPerson() == Person.NULL)
                 return true;
         return false;
     }
@@ -31,12 +31,12 @@ public class Staff extends ArrayList<Position> {
     public void fillPosition(String title, Person hire) {
         for(Position p : this) {
             if(p.getTitle().equals(title) &&
-                    p.getPerson().equals(Person.NULL)) {
+                    p.getPerson() == Person.NULL) {
                 p.setPerson(hire);
                 return;
             }
-            throw new RuntimeException("Position " + title + " not available");
         }
+        throw new RuntimeException("Position " + title + " not available");
     }
 
     public static void main(String[] args) {
@@ -46,8 +46,10 @@ public class Staff extends ArrayList<Position> {
                 "Software Engineer", "Software Engineer",
                 "Software Engineer", "Test Engineer",
                 "Test Engineer", "Technical Writer");
+
         s.fillPosition("President", new Person("Me", "Last",
                 "The Top, Lonely At"));
+
         s.fillPosition("Project Lead", new Person("Janet", "Planner",
                 "The Burbs"));
         if(s.positionAvailable("Software Engineer"))
@@ -55,5 +57,4 @@ public class Staff extends ArrayList<Position> {
                     new Person("Bob", "Coder", "Bright Light City"));
         System.out.println(s);
     }
-
 }
