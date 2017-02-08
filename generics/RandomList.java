@@ -1,0 +1,8 @@
+package generics;
+
+/**
+ * Created by Liam on 08/02/2017.
+ */
+public class RandomList<T> {
+    
+}

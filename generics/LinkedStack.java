@@ -23,7 +23,7 @@ public class LinkedStack<T> {
         }
     }
 
-    private Node<T> top = new Node<T>();    // End sentinel
+    private Node<T> top = new Node<>();    // End sentinel
 
     // end insert method.
     public void push(T item) {
