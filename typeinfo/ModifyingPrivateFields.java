@@ -26,6 +26,7 @@ public class ModifyingPrivateFields {
         System.out.println("f.getInt(pf) : " + f.getInt(pf));
         f.setInt(pf, 47);
         System.out.println(pf);
+        System.out.println();
 
         f = pf.getClass().getDeclaredField("s");
         f.setAccessible(true);
@@ -33,11 +34,14 @@ public class ModifyingPrivateFields {
         // can not change a final String.
         f.set(pf, "No, you're not!");
         System.out.println(pf);
+        System.out.println();
+
 
         f = pf.getClass().getDeclaredField("s2");
         f.setAccessible(true);
         System.out.println("f.get(pf) : " + f.get(pf));
         f.set(pf, "No, you're not ! ");
         System.out.println(pf);
+        System.out.println();
     }
 }
