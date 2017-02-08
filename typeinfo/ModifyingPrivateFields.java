@@ -30,8 +30,10 @@ public class ModifyingPrivateFields {
         f = pf.getClass().getDeclaredField("s");
         f.setAccessible(true);
         System.out.println("f.get(pf) : " + f.get(pf));
-        f.set(pf, "no, you're not!");
+        // can not append to a final String.
+        f.set(pf, "No, you're not!");
         System.out.println(pf);
+
         f = pf.getClass().getDeclaredField("s2");
         f.setAccessible(true);
         System.out.println("f.get(pf) : " + f.get(pf));
