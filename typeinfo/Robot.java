@@ -10,6 +10,7 @@ public interface Robot {
     String model();
     List<Operation> operations();
 
+    // Nested class to perform test case
     class Test {
         public static void test(Robot r) {
             if(r instanceof Null)
