@@ -20,6 +20,7 @@ public class ModifyingPrivateFields {
     public static void main(String[] args) throws Exception {
         WithPrivateFinalField pf = new WithPrivateFinalField();
         System.out.println(pf);
+        System.out.println();
 
         Field f = pf.getClass().getDeclaredField("i");
         f.setAccessible(true);
