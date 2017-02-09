@@ -6,8 +6,6 @@ import java.util.Iterator;
 /**
  * Created by Liam on 09/02/2017.
  */
-interface Generator<T> { T next(); }
-
 public class CoffeeGenerator
         implements Generator<Coffee>, Iterable<Coffee>
 {
