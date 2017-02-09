@@ -16,10 +16,10 @@ public class CoffeeGenerator
         Americano.class, Breve.class, };
     private static Random rand  = new Random(47);
 
-    public CoffeeGenerator() {}
-
     // For iteration :
     private int size = 0;
+
+    public CoffeeGenerator() {}
 
     public CoffeeGenerator(int sz) {
         this.size = sz;
