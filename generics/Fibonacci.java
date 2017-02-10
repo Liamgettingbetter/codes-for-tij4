@@ -22,4 +22,5 @@ public class Fibonacci implements Generator<Integer> {
         for(int i = 0; i < 18; i++)
             System.out.print(gen.next() + " ");
     }
+
 }
