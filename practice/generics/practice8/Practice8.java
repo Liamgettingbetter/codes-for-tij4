@@ -60,6 +60,7 @@ public class Practice8 implements Generator<StoryCharacters>,
             @Override
             public StoryCharacters next() {
                 size--;
+                // we just invoke the generator in the iterator.
                 return Practice8.this.next();
             }
 
