@@ -12,6 +12,7 @@ public class CoffeeGenerator
     private Class[]       types = {
         Latte.class,     Mocha.class, Cappuccino.class,
         Americano.class, Breve.class, };
+
     private static Random rand  = new Random(47);
 
     // For iteration :
@@ -63,6 +64,7 @@ public class CoffeeGenerator
         CoffeeGenerator gen = new CoffeeGenerator();
         for(int i = 0; i < 5; i++)
             System.out.println(gen.next());
+        System.out.println();
         for(Coffee c : new CoffeeGenerator(5))
             System.out.println(c);
     }
