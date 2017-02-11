@@ -25,9 +25,11 @@ class Altron extends BadGuys {}
 class WinterSoldier extends BadGuys {}
 
 public class Practice8 implements Generator<StoryCharacters>,
-        Iterable<StoryCharacters> {
+        Iterable<StoryCharacters> 
+{
     private int size = 0;
     private Random rand = new Random(47);
+
     private Class[] types = {
             Batman.class, Ironman.class,
             Hydra.class, Altron.class,
