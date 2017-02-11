@@ -16,7 +16,6 @@ class StoryCharacters {
 
 class GoodGuys extends StoryCharacters {}
 class BadGuys extends StoryCharacters {}
-
 class Batman extends GoodGuys {}
 class Ironman extends GoodGuys {}
 class Spiderman extends GoodGuys {}
@@ -25,7 +24,7 @@ class Altron extends BadGuys {}
 class WinterSoldier extends BadGuys {}
 
 public class Practice8 implements Generator<StoryCharacters>,
-        Iterable<StoryCharacters> 
+        Iterable<StoryCharacters>
 {
     private int size = 0;
     private Random rand = new Random(47);
