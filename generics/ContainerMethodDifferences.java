@@ -19,7 +19,7 @@ public class ContainerMethodDifferences {
     static void interfaces(Class<?> type) {
         System.out.print("Interfaces in " +
             type.getSimpleName() + ": ");
-        List<String> result = new ArrayList();
+        List<String> result = new ArrayList<>();
         for(Class<?> c : type.getInterfaces())
             result.add(c.getSimpleName());
         System.out.println(result);
