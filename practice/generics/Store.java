@@ -12,7 +12,7 @@ class Product {
     private String description;
     private double price;
 
-    public Product(int IDnumber, String descr, double price) {
+    private Product(int IDnumber, String descr, double price) {
         this.id = IDnumber;
         this.description = descr;
         this.price = price;
