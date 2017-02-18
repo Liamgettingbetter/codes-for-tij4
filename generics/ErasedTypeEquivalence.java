@@ -1,4 +1,4 @@
-package practice.generics;
+package generics;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,6 @@ public class ErasedTypeEquivalence {
         Class c1 = new ArrayList<String>().getClass();
         Class c2 = new ArrayList<Integer>().getClass();
         System.out.println(c1 == c2);
-
+        System.out.println(c1.equals(c2));
     }
 }
