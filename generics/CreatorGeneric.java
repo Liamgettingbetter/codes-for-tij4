@@ -16,6 +16,7 @@ abstract class GenericWithCreate<T> {
 class X {}
 
 class Creator extends GenericWithCreate<X> {
+    @Override
     X create() {
         return new X();
     }
