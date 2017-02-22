@@ -19,6 +19,7 @@ public class GenericArray2<T> {
         return (T)array[index];
     }
 
+    @SuppressWarnings("unchecked")
     public T[] rep() {
         return (T[])array;  // warning : unchecked cast
     }
