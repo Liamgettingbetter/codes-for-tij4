@@ -23,7 +23,8 @@ class Colored2<T extends HasColor> extends HoldItem<T> {
 }
 
 class ColoredDimension2<T extends Dimension & HasColor>
-    extends Colored2<T> {
+    extends Colored2<T>
+{
     ColoredDimension2(T item) { super(item); }
 
     int getX() { return item.x; }
@@ -31,7 +32,9 @@ class ColoredDimension2<T extends Dimension & HasColor>
     int getZ() { return item.z; }
 }
 
-class Solid2<T extends Dimension & HasColor & Weight> extends ColoredDimension2<T> {
+class Solid2<T extends Dimension & HasColor & Weight>
+    extends ColoredDimension2<T>
+{
     Solid2(T item) { super(item); }
 
     int weight() { return item.weight(); }  // delegation
