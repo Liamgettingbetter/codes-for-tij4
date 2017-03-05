@@ -3,7 +3,7 @@ package generics;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-/**
+ /**
  * Created by Liam on 19/02/2017.
  */
 public class ArrayMaker<T> {
