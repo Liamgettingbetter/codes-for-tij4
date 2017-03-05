@@ -6,12 +6,14 @@ import java.util.List;
  * Created by Liam on 05/03/2017.
  */
 interface SuperPower {}
+
 interface XRayVision extends SuperPower {
     void seeThroughWalls();
 }
 interface SuperHearing extends SuperPower {
     void hearSubtleNoises();
 }
+
 interface SuperSmell extends SuperPower {
     void trackBySmell();
 }
