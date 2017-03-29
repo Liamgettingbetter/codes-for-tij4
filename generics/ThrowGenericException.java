@@ -51,7 +51,7 @@ class Processor2 implements Processor<Integer, Failure2> {
 public class ThrowGenericException {
     public static void main(String[] args) {
         ProcessRunner<String, Failure1> runner =
-            new ProcessRunner<String, Failure1>();
+            new ProcessRunner<>();
 
         for(int i = 0; i < 3; i++)
             runner.add(new Processor1());
