@@ -39,6 +39,6 @@ public class SelfBounding {
         a = a.set(new A()).get();
         a = a.get();
         C c = new C();
-        c = c.setAndGet(new C());y
+        c = c.setAndGet(new C());
     }
 }
