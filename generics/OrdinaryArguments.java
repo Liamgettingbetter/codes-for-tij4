@@ -10,6 +10,7 @@ class OrdinarySetter {
 }
 
 class DerivedSetter extends OrdinarySetter {
+    // It is a overload method with a same name but different parameter.
     void set(Derived derived) {
         System.out.println("DerivedSetter.set(derived)");
     }
