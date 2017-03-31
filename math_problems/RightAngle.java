@@ -13,6 +13,8 @@ public class RightAngle {
         int total_number = 0;
         int times = 0;
         int current_layer = 1;
+
+        // make sure the total number n-layer will need.
         for(int i = 1; i <= layer; i++) {
             total_number += i;
         }
