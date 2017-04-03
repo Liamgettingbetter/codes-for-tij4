@@ -24,9 +24,11 @@ public class IceCream {
         for(int i = 0; i < n; i++) {
             int temp;
 
+            // jump to those index that does not be picked.
             do {
                 temp = rand.nextInt(FLAVORS.length);
             } while(picked[temp]);
+
             results[i] = FLAVORS[temp];
             picked[temp] = true;
         }
