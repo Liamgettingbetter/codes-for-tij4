@@ -7,17 +7,19 @@ import java.util.ArrayList;
 /**
  * Created by Liam on 03/04/2017.
  */
-class BerylliumSphere {
-    private static long counter;
-    private final long id = counter++;
 
-    @Override
-    public String toString() {
-        return "Sphere " + id;
-    }
-}
 
 public class ContainerComparison {
+    public static class BerylliumSphere {
+        private static long counter;
+        private final long id = counter++;
+
+        @Override
+        public String toString() {
+            return "Sphere " + id;
+        }
+    }
+
     public static void main(String[] args) {
         BerylliumSphere[] spheres = new BerylliumSphere[10];
 
