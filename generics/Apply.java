@@ -44,7 +44,7 @@ class ApplyTest {
         Apply.apply(squares, Shape.class.getMethod("rotate"));
         Apply.apply(squares, Shape.class.getMethod("resize"), 5);
 
-        Apply.apply(new FilledList<Shape>(Shape.class, 10), Shape.class.getMethod("rotate"));
+        Apply.apply(new FilledList<>(Shape.class, 10), Shape.class.getMethod("rotate"));
         Apply.apply(new FilledList<Shape>(Square.class, 10), Shape.class.getMethod("rotate"));
     }
 }

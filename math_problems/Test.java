@@ -52,10 +52,14 @@ class Mix extends A2 implements B1, C1 {
 }
 
 public class Test {
-    Mix m1 = new Mix();
-    Mix m2 = new Mix();
+    public static void main(String[] args) {
+        Mix m1 = new Mix();
+        Mix m2 = new Mix();
 
-    // something's wrong.
-//    m1.a();
+        // nothing's wrong.
+        m1.a();
+        m1.b();
+        m1.c();
+    }
 
 }
