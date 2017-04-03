@@ -61,5 +61,4 @@ public class Test {
         m1.b();
         m1.c();
     }
-
 }

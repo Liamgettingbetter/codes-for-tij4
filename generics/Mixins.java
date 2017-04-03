@@ -64,10 +64,12 @@ class Mixin extends BasicImp implements TimeStamped, SerialNumbered {
 }
 
 public class Mixins {
-    Mixin mixin1 = new Mixin();
-    Mixin mixin2 = new Mixin();
+    public static void main(String[] args) {
+        Mixin mixin1 = new Mixin();
+        Mixin mixin2 = new Mixin();
 
-//    mixin2.set("test string 2");
+        mixin2.set("test string 2");
 
-//    System.out.println(m1.get())
+        System.out.println(mixin1.get());
+    }
 }
