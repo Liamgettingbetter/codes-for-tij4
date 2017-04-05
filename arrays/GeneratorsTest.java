@@ -2,6 +2,8 @@ package arrays;
 
 import generics.coffee.Generator;
 
+import java.util.concurrent.BlockingQueue;
+
 /**
  * Created by Liam on 04/04/2017.
  */
