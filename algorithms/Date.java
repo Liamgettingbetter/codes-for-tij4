@@ -65,7 +65,7 @@ public class Date implements Comparable<Date> {
     // is given date valid?
     private static boolean isValid(int year, int month, int day) {
         if(month < 1 || month > 12) return false;
-        if(day < 1 || day != DAYS[month]) return false;
+        if(day < 1 || day > DAYS[month]) return false;
         if(month == 2 && day == 29 && !isLeapYear(year)) return false;
         return true;
     }
@@ -152,7 +152,7 @@ public class Date implements Comparable<Date> {
 
         for(int i = 0; i < 10; i++) {
             today = today.next();
-            System.out.println();
+            System.out.println(today);
         }
         System.out.println(today.isAfter(today.next()));
         System.out.println(today.isBefore(today));
