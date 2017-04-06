@@ -147,7 +147,7 @@ public class Date implements Comparable<Date> {
      *  @param args the command-line arguments
      */
     public static void main(String[] args) {
-        Date today = new Date(2017, 4, 6);
+        Date today = new Date(2017, 2, 28);
         System.out.println(today);
 
         for(int i = 0; i < 10; i++) {
