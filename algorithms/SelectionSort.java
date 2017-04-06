@@ -39,7 +39,7 @@ public class SelectionSort {
 
             // Find the smallest element's index, then assign it to min.
             for (int j = i + 1; j < length; j++) {
-                if (less(a[j], min)) min = j;
+                if (less(a[j], a[min])) min = j;
             }
             exchange(a, i, min);
             assert isSorted(a, 0, i);
@@ -61,7 +61,7 @@ public class SelectionSort {
 
             // Find the smallest element's index, then assign it to him.
             for (int j = i + 1; j < length; j++) {
-                if (less(comparator, j, min)) min = j;
+                if (less(comparator, a[j], a[min])) min = j;
             }
             exchange(a, i, min);
             assert isSorted(a, comparator, 0, i);
