@@ -1,5 +1,7 @@
 package algorithms;
 
+import java.util.Comparator;
+
 /**
  * Created by Liam on 06/04/2017.
  */
@@ -12,9 +14,14 @@ public class InsertionSort {
         return a.compareTo(b) < 0;
     }
 
-    // exchange two elements in an array.
-    private static void exchange(Comparable[] array, int x, int y) {
-        Comparable temp = array[x];
+    // Overload version of less.
+    private static boolean less(Comparator comp, Object a, Object b) {
+        return comp.compare(a, b) < 0;
+    }
+
+    // Exchange two elements in an array.
+    private static void exchange(Object[] array, int x, int y) {
+        Object temp = array[x];
         array[x] = array[y];
         array[y] = temp;
     }
@@ -23,6 +30,12 @@ public class InsertionSort {
     private static boolean isSorted(Comparable[] array, int low, int high) {
         for(int i = low + 1; i <= high; i++)
             if(less(array[i], array[i - 1])) return false;
+        return true;
+    }
+
+    private static boolean isSorted(Object[] array, Comparator comp, int low, int high) {
+        for(int i = low + 1; i <= high; i++)
+            if(!less(comp, array[i], array[i - 1])) return false;
         return true;
     }
 
@@ -57,5 +70,21 @@ public class InsertionSort {
             }
         }
         assert isSorted(array, low, high);
+    }
+
+    /**
+     *  Reorder the subarray in ascending way, using a comparator.
+     *  @param comp the comparator we used to sort the array.
+     *  @param array the array to be sorted.
+     */
+    public static void sort(Comparator comp, Object[] array) {
+        int length = array.length;
+
+        for(int i = 0; i < length; i++) {
+            for(int j = i + 1; j > 0 && less(comp, array[j], array[j - 1]); j--) {
+                exchange(array, j, j - 1);
+            }
+            assert isSorted(array, comp, 0, i);
+        }
     }
 }

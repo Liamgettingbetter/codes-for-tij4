@@ -24,6 +24,7 @@ public class SelectionSort {
     private static void exchange(Object[] array, int x, int y) {
         Object temp = array[x];
         array[x] = array[y];
+        array[y] = temp;
     }
 
     /**
