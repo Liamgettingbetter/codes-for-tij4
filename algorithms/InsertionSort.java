@@ -35,7 +35,13 @@ public class InsertionSort {
 
     private static boolean isSorted(Object[] array, Comparator comp, int low, int high) {
         for(int i = low + 1; i <= high; i++)
-            if(!less(comp, array[i], array[i - 1])) return false;
+            if(less(comp, array[i], array[i - 1])) return false;
+        return true;
+    }
+
+    private static boolean isSorted(Comparable[] array) {
+        for(int i = 1; i < array.length; i++)
+            if(less(array[i], array[i - 1])) return false;
         return true;
     }
 
@@ -64,8 +70,8 @@ public class InsertionSort {
     public static void sort(Comparable[] array, int low, int high) {
         int length = array.length;
 
-        for(int i = 0; i < length; i++) {
-            for(int j = i + 1; j > 0 && less(array[j], array[j - 1]); j--) {
+        for(int i = low; i < length; i++) {
+            for(int j = i + 1; j > low && less(array[j], array[j - 1]); j--) {
                 exchange(array, j, j - 1);
             }
         }
@@ -73,7 +79,7 @@ public class InsertionSort {
     }
 
     /**
-     *  Reorder the subarray in ascending way, using a comparator.
+     *  Reorder the array in ascending way, using a comparator.
      *  @param comp the comparator we used to sort the array.
      *  @param array the array to be sorted.
      */
@@ -86,5 +92,23 @@ public class InsertionSort {
             }
             assert isSorted(array, comp, 0, i);
         }
+    }
+
+    /**
+     *  Reorder the subarray in ascending way, using a comparator.
+     *  @param array the array to be sorted.
+     *  @param comp the comparator we used.
+     *  @param low the index to start.
+     *  @param high the index to stop.
+     */
+    public static void sort(Object[] array, Comparator comp, int low, int high) {
+        int length = array.length;
+
+        for(int i = low; i < length; i++) {
+            for(int j = i + 1; j > low && less(comp, array[j], array[j - 1]); j--) {
+                exchange(array, j, j - 1);
+            }
+        }
+        assert isSorted(array, comp, low, high);
     }
 }
