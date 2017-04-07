@@ -97,13 +97,45 @@ public class SelectionSort {
         System.out.println();
     }
 
+    private static Comparable[] inflate(int seed, int size, String type) {
+        switch(type) {
+            case "Integer" :
+                return createInt(seed, size);
+            case "Float" :
+                return createFloat(seed, size);
+            case "Double" :
+                return createDouble(seed, size);
+            case "String" :
+                return createString(seed, size);
+            default :
+                return null;
+        }
+    }
+
+    private static Integer[] createInt(int seed, int size) {
+        Random rand = new Random(seed);
+        Integer[] result = new Integer[size];
+
+        for(int i = 0; i < size; i++)
+            result[i] = rand.nextInt(100);
+
+        return result;
+    }
+
+    private static Float[] createFloat(int seed, int size) {
+        return null;
+    }
+
+    private static Double[] createDouble(int seed, int size) {
+        return null;
+    }
+
+    private static String[] createString(int seed, int size) {
+        return null;
+    }
+
     public static void main(String[] args) {
-        Random rand = new Random(18);
-        Integer[] ints = new Integer[10];
-
-        for(int i = 0; i < ints.length; i++)
-            ints[i] = rand.nextInt(100);
-
+        Comparable[] ints = inflate(18, 10, "Integer");
         show(ints);
         sort(ints);
         show(ints);
