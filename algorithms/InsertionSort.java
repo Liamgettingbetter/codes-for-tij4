@@ -1,6 +1,7 @@
 package algorithms;
 
 import java.util.Comparator;
+import java.util.Random;
 
 /**
  * Created by Liam on 06/04/2017.
@@ -39,10 +40,10 @@ public class InsertionSort {
         return true;
     }
 
-    private static boolean isSorted(Comparable[] array) {
-        for(int i = 1; i < array.length; i++)
-            if(less(array[i], array[i - 1])) return false;
-        return true;
+    private static void show(Comparable[] array) {
+        for(Comparable c : array)
+            System.out.print(c + " ");
+        System.out.println();
     }
 
     /**
@@ -51,14 +52,7 @@ public class InsertionSort {
      */
     public static void sort(Comparable[] array) {
         int length = array.length;
-
-        for(int i = 0; i < length; i++) {
-            for(int j = i + 1; j > 0 && less(array[j], array[j - 1]); j--) {
-                exchange(array, j, j - 1);
-            }
-            assert isSorted(array, 0, i);
-        }
-        assert isSorted(array);
+        sort(array, 0, length - 1);
     }
 
     /**
@@ -68,9 +62,7 @@ public class InsertionSort {
      *  @param high the index to stop the ordering.
      */
     public static void sort(Comparable[] array, int low, int high) {
-        int length = array.length;
-
-        for(int i = low; i < length; i++) {
+        for(int i = low; i < high - 1; i++) {
             for(int j = i + 1; j > low && less(array[j], array[j - 1]); j--) {
                 exchange(array, j, j - 1);
             }
@@ -83,15 +75,9 @@ public class InsertionSort {
      *  @param comp the comparator we used to sort the array.
      *  @param array the array to be sorted.
      */
-    public static void sort(Comparator comp, Object[] array) {
+    public static void sort(Object[] array, Comparator comp) {
         int length = array.length;
-
-        for(int i = 0; i < length; i++) {
-            for(int j = i + 1; j > 0 && less(comp, array[j], array[j - 1]); j--) {
-                exchange(array, j, j - 1);
-            }
-            assert isSorted(array, comp, 0, i);
-        }
+        sort(array, comp, 0, length - 1);
     }
 
     /**
@@ -102,13 +88,24 @@ public class InsertionSort {
      *  @param high the index to stop.
      */
     public static void sort(Object[] array, Comparator comp, int low, int high) {
-        int length = array.length;
-
-        for(int i = low; i < length; i++) {
+        for(int i = low; i < high - 1; i++) {
             for(int j = i + 1; j > low && less(comp, array[j], array[j - 1]); j--) {
                 exchange(array, j, j - 1);
             }
         }
         assert isSorted(array, comp, low, high);
+    }
+
+    public static void main(String[] args) {
+        Random rand = new Random(122);
+        Integer[] array = new Integer[10];
+
+        for(int i = 0; i < 10; i++) {
+            array[i] = rand.nextInt(100);
+        }
+
+        show(array);
+        sort(array);
+        show(array);
     }
 }
