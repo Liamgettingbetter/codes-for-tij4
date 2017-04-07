@@ -123,19 +123,29 @@ public class SelectionSort {
     }
 
     private static Float[] createFloat(int seed, int size) {
-        return null;
+        Random rand = new Random(seed);
+        Float[] result = new Float[size];
+
+        for(int i = 0; i < size; i++)
+            result[i] = Math.round(rand.nextFloat() * 100) / 100f;
+        return result;
     }
 
     private static Double[] createDouble(int seed, int size) {
-        return null;
+        Random rand = new Random(seed);
+        Double[] result = new Double[size];
+
+        for(int i = 0; i < size; i++)
+            result[i] = Math.round(rand.nextDouble() * 100) / 100d;
+        return result;
     }
 
     private static String[] createString(int seed, int size) {
-        return null;
+        return new String[] { "Fuck", "You", "Bitch"};
     }
 
     public static void main(String[] args) {
-        Comparable[] ints = inflate(18, 10, "Integer");
+        Comparable[] ints = inflate(18, 10, "String");
         show(ints);
         sort(ints);
         show(ints);
