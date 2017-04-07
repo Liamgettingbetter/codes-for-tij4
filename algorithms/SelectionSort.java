@@ -1,6 +1,7 @@
 package algorithms;
 
 import java.util.Comparator;
+import java.util.Random;
 
 /**
  * Created by Liam on 06/04/2017.
@@ -29,7 +30,6 @@ public class SelectionSort {
 
     /**
      * Reorder this array in ascending way, using the natural order.
-     *
      * @param a the array to be ordered.
      */
     public static void sort(Comparable[] a) {
@@ -50,7 +50,6 @@ public class SelectionSort {
 
     /**
      * Reorder this array in ascending way, using a comparator.
-     *
      * @param a          the array
      * @param comparator the comparator specifying the order.
      */
@@ -90,5 +89,23 @@ public class SelectionSort {
             if(less(comp, i, i - 1)) return false;
         }
         return true;
+    }
+
+    private static void show(Comparable[] array) {
+        for(Comparable c : array)
+            System.out.print(c + " ");
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Random rand = new Random(18);
+        Integer[] ints = new Integer[10];
+
+        for(int i = 0; i < ints.length; i++)
+            ints[i] = rand.nextInt(100);
+
+        show(ints);
+        sort(ints);
+        show(ints);
     }
 }
