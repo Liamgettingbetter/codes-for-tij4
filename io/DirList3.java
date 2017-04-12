@@ -24,6 +24,5 @@ public class DirList3 {
                     return p.matcher(filename).matches();
                 }
             });
-
     }
 }
