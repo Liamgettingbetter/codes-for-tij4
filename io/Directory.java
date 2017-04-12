@@ -6,11 +6,41 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 
 import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by Liam on 12/04/2017.
  */
+class PPrint {
+    public static String pformat(Collection<?> c) {
+        if(c.size() == 0) return "[]";
+
+        StringBuilder result = new StringBuilder("[");
+
+        for(Object obj : c) {
+            if(c.size() != 1)
+                // make a newline and tab 2 space.
+                result.append("\n  ");
+            result.append(obj);
+        }
+
+        if(c.size() != 1)
+            result.append("\n");
+        result.append("]");
+        return result.toString();
+    }
+
+    public static void pprint(Collection<?> c) {
+        System.out.println(pformat(c));
+    }
+
+    public static void pprint(Object[] c) {
+        System.out.println(pformat(Arrays.asList(c)));
+    }
+}
+
 public final class Directory {
     public static File[] local(File dir, final String regex) {
         return dir.listFiles(new FilenameFilter() {
@@ -44,8 +74,8 @@ public final class Directory {
 
         @Override
         public String toString() {
-            return "dirs : " + dirs + " "
-                    + "files : " + files;
+            return "dirs : " +PPrint.pformat(dirs) 
+                    + "files : " + PPrint.pformat(files);
         }
     }
 
