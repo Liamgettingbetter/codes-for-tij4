@@ -16,7 +16,6 @@ import java.util.Collection;
 class PPrint {
     public static String pformat(Collection<?> c) {
         if(c.size() == 0) return "[]";
-
         StringBuilder result = new StringBuilder("[");
 
         for(Object obj : c) {
@@ -28,8 +27,9 @@ class PPrint {
 
         if(c.size() != 1)
             result.append("\n");
+
         result.append("]");
-        return result.toString();
+        return result.toString() + "\n";
     }
 
     public static void pprint(Collection<?> c) {
@@ -74,7 +74,7 @@ public final class Directory {
 
         @Override
         public String toString() {
-            return "dirs : " +PPrint.pformat(dirs) 
+            return "dirs : " +PPrint.pformat(dirs)
                     + "files : " + PPrint.pformat(files);
         }
     }
