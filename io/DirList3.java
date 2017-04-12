@@ -9,7 +9,7 @@ import java.util.regex.*;
  * Created by Liam on 12/04/2017.
  */
 public class DirList3 {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         File path = new File(".");
         String[] list;
 
@@ -24,6 +24,6 @@ public class DirList3 {
                     return p.matcher(filename).matches();
                 }
             });
-        
+
     }
 }
