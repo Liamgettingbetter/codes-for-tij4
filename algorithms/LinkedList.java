@@ -1,63 +1,69 @@
+/**
+	Linked List --- Java version
+ */
 package algorithms;
 
-/**
- * Created by Liam on 31/08/2017.
- */
 class Node {
-    int value;
-    Node next;
+	int value;
+	Node next;
 
-    Node() {
-        this.value = 0;
-        this.next = null;
-    }
+	Node() {
+		this.value = -1;
+		this.next = null;
+	}
 
-    Node(int value) {
-        this.value = value;
-    }
+	Node(int value) {
+		this.value = value;
+		this.next = null;
+	}
 
-    @Override
+	@Override
     public String toString() {
-        return Integer.toString(value);
+	    return Integer.toString(this.value);
     }
 }
 
 public class LinkedList {
-    private Node header;
+	private Node header;
 
-    private LinkedList() {
-        this.header = new Node(-1);
-    }
+	public LinkedList() {
+		this.header = new Node();
+	}
 
-    public void add(Node newNode) {
-        Node temp = this.header;
+	public void add(Node next) {
+		Node temp = header;
 
-        while(temp.next != null) {
-            temp = temp.next;
-        }
-        temp.next = newNode;
-    }
+		while(temp.next != null) {
+			temp = temp.next;
+		}
 
-    public void printList() {
-        Node temp = this.header;
+		temp.next = next;
+	}
 
-        System.out.print("[");
+	public void printList() {
+	    Node temp = header.next;
 
-        while(temp.next.next != null) {
-            temp = temp.next;
-            System.out.print(temp + " ");
-        }
-        temp = temp.next;
-        System.out.println(temp + "]");
-    }
+	    System.out.print("[");
 
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+	    while(temp != null) {
+	        System.out.print(temp);
+	        temp = temp.next;
 
-        for(int i = 0; i < 100; i++) {
-            list.add(new Node(i));
+	        if(temp != null)
+	            System.out.print(" ");
         }
 
-        list.printList();
+        System.out.println("]");
     }
+
+	public static void main(String[] args) {
+		LinkedList list = new LinkedList();
+
+		for(int i = 0; i < 100; i++) {
+			list.add(new Node(i));
+		}
+
+		list.printList();
+
+	}
 }
