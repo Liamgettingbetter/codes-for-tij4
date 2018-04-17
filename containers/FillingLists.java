@@ -7,10 +7,12 @@ import java.util.Collections;
 /**
  * Created by Liam on 07/04/2017.
  */
-class StringAddresses {
+class StringAddress {
     private String s;
 
-    public StringAddresses(String s) { this.s = s; }
+    public StringAddress(String a) {
+        this.s = a;
+    }
 
     @Override
     public String toString() {
@@ -20,12 +22,12 @@ class StringAddresses {
 
 public class FillingLists {
     public static void main(String[] args) {
-        List<StringAddresses> list = new ArrayList<>(
-            Collections.nCopies(4, new StringAddresses("Fuck"))
-        );
+        List<StringAddress> list = new ArrayList<>(
+            Collections.nCopies(4, new StringAddress("hello")));
         System.out.println(list);
-
-        Collections.fill(list, new StringAddresses("Fuck you"));
+        // Collections.fill(List<T>, T) 只能用于替换参数list中的内容
+        // 并不能扩充list.
+        Collections.fill(list, new StringAddress("World"));
         System.out.println(list);
     }
 }

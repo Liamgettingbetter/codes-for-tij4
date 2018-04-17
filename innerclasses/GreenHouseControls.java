@@ -60,6 +60,7 @@ public class GreenHouseControls extends Controller {
             return "Greenhouse water is on";
         }
     }
+
     public class WaterOff extends Event {
         public WaterOff(long delayTime) {
             super(delayTime);
@@ -94,6 +95,7 @@ public class GreenHouseControls extends Controller {
             return "Thermostat on night setting";
         }
     }
+
     public class ThermostatDay extends Event {
         public ThermostatDay(long delayTime) {
             super(delayTime);

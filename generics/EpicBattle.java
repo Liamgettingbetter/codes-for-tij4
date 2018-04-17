@@ -10,6 +10,7 @@ interface SuperPower {}
 interface XRayVision extends SuperPower {
     void seeThroughWalls();
 }
+
 interface SuperHearing extends SuperPower {
     void hearSubtleNoises();
 }

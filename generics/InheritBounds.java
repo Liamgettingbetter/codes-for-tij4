@@ -7,6 +7,9 @@ import java.awt.Color;
  */
 class HoldItem<T> {
     T item;
+
+    HoldItem<T> a;
+
     HoldItem(T item) {
         this.item = item;
     }
@@ -26,6 +29,18 @@ class ColoredDimension2<T extends Dimension & HasColor>
     extends Colored2<T>
 {
     ColoredDimension2(T item) { super(item); }
+
+    int getX() { return item.x; }
+    int getY() { return item.y; }
+    int getZ() { return item.z; }
+
+    Color get() {
+        return item.getColor();
+    }
+}
+
+class ColoredDimension3<T extends Dimension & HasColor> extends HoldItem<T> {
+    ColoredDimension3(T item) { super(item); }
 
     int getX() { return item.x; }
     int getY() { return item.y; }
