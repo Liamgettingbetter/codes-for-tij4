@@ -10,3 +10,5 @@ public class ex3 {
         System.out.println(a);
     }
 }
+
+
