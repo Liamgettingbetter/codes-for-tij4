@@ -27,6 +27,7 @@ public class Beetle extends Insect {
     private int k = printInit("Beetle.k initialized");
 
     public Beetle() {
+        // super();  --- 每当调用继承类的构造方法时，Java的编译器默认首先调用基类的构造方法。
         out.println("k = " + k);
         out.println("j = " + j);
     }
@@ -36,6 +37,6 @@ public class Beetle extends Insect {
 
     public static void main(String[] args) {
         out.println("Beetle constructor");
-        //Beetle b = new Beetle();
+        Beetle b = new Beetle();
     }
 }

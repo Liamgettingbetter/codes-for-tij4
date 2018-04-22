@@ -16,3 +16,4 @@ public class ex17 {
         System.out.println(productEven(a));
     }
 }
+

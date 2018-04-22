@@ -20,11 +20,16 @@ class Homer {
 class Milhouse {}
 
 class Bart extends Homer {
-    /*
-        导出类里的方法重载现象
-     */
+    /* 导出类里的方法重载现象 */
     void doh(Milhouse m) {
         out.println("doh(Milhouse)");
+    }
+
+    /* 导出类中的方法覆盖现象 */
+    @Override
+    char doh(char c) {
+        out.println("Bart.doh(char)");
+        return c;
     }
 }
 
