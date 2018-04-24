@@ -78,7 +78,4 @@ public class CircularlyLinkedList<Elem> {
         size--;
         return head.getElement();
     }
-
-
-
 }
