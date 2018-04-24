@@ -28,7 +28,10 @@ public class DoublyLinkedList<Element> {
     private Node<Element> trailer = null;
     private int size = 0;
 
-    DoublyLinkedList() {}
+    DoublyLinkedList() {
+        header = new Node<>();
+        trailer = new Node<>();
+    }
 
 
     // get the size of this Doubly Linked List.
@@ -105,7 +108,10 @@ public class DoublyLinkedList<Element> {
     }
 
     private void addIfEmpty(Element e) {
+        //header = new Node<>();
+        //trailer = new Node<>();
         Node<Element> new_node = new Node<>(header, e, trailer);
+
         header.setNextNode(new_node);
         trailer.setPrevNode(new_node);
     }
