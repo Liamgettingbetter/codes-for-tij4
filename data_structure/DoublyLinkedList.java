@@ -157,6 +157,8 @@ public class DoublyLinkedList<Element> {
                             || !temp.getContent().equals(other_temp.getContent())
                             || !temp.getNextNode().equals(other_temp.getNextNode()))
                         return false;
+                    temp = temp.getNextNode();
+                    other_temp = other_temp.getNextNode();
                 }
                 return true;
             }
