@@ -1,8 +1,8 @@
 package data_structure;
 
-public class DoublyLinkedList<Element> {
+public class DoublyLinkedList<Element> implements Cloneable {
 
-    private static class Node<Element> {
+    private static class Node<Element> implements Cloneable {
         private Node<Element> prev;
         private Element content;
         private Node<Element> next;
@@ -31,6 +31,11 @@ public class DoublyLinkedList<Element> {
                         && this.next.equals(list.next);
             }
         }
+
+//        @Override
+//        public Node<Element> clone() throws CloneNotSupportedException {
+//
+//        }
     }
 
     private Node<Element> header = null;
@@ -58,7 +63,7 @@ public class DoublyLinkedList<Element> {
     // get the element of the last node in this list.
     public Element last() {
         if(isEmpty()) return null;
-        else return trailer.getNextNode().getContent();
+        else return trailer.getPreNode().getContent();
     }
 
     public void addFirst(Element e) {
@@ -152,7 +157,7 @@ public class DoublyLinkedList<Element> {
             else {
                 Node<Element> temp = header.getNextNode();
                 Node<Element> other_temp = list.header.getNextNode();
-                while (temp != trailer) {
+                while (temp != last() && other_temp != list.last()) {
                     if(!temp.getPreNode().equals(other_temp.getPreNode())
                             || !temp.getContent().equals(other_temp.getContent())
                             || !temp.getNextNode().equals(other_temp.getNextNode()))
@@ -164,6 +169,10 @@ public class DoublyLinkedList<Element> {
             }
         }
     }
+
+//    public Object clone(DoublyLinkedList<Element> list) {
+//
+//    }
 
     public static void main(String[] args) {
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
