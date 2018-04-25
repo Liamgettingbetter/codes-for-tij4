@@ -22,6 +22,15 @@ public class DoublyLinkedList<Element> {
         public void setContent(Element e) { this.content = e; }
         public void setPrevNode(Node<Element> prev) { this.prev = prev; }
         public void setNextNode(Node<Element> next) { this.next = next; }
+
+        // equality method overloads.
+        public boolean equals(Node<Element> list) {
+            if(super.equals(list)) return true;
+            else {
+                return this.prev.equals(list) && this.content.equals(list.content)
+                        && this.next.equals(list.next);
+            }
+        }
     }
 
     private Node<Element> header = null;
@@ -132,6 +141,26 @@ public class DoublyLinkedList<Element> {
             }
         }
         return sb.toString();
+    }
+
+
+    // overloaded equality test method.
+    public boolean equals(DoublyLinkedList<Element> list) {
+        if(super.equals(list)) return true;
+        else {
+            if(this.size != list.size) return false;
+            else {
+                Node<Element> temp = header.getNextNode();
+                Node<Element> other_temp = list.header.getNextNode();
+                while (temp != trailer) {
+                    if(!temp.getPreNode().equals(other_temp.getPreNode())
+                            || !temp.getContent().equals(other_temp.getContent())
+                            || !temp.getNextNode().equals(other_temp.getNextNode()))
+                        return false;
+                }
+                return true;
+            }
+        }
     }
 
     public static void main(String[] args) {
