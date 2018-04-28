@@ -31,8 +31,8 @@ public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
     }
 
     /**
-     *
-     * @return
+     * Check whether current stack is full or not.
+     * @return boolean true/false.
      */
     @Override
     public boolean isFull() {
