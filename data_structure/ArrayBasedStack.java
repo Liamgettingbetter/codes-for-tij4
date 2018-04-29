@@ -12,7 +12,7 @@ public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
     }
 
     ArrayBasedStack() {
-        this(0);
+        this(10);
     }
 
     @Override
@@ -87,13 +87,41 @@ public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
         return ret;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for(Element e : stack) {
+            sb.append(e).append(", ");
+        }
+
+        return sb.toString();
+    }
 
 
     private void resize() {
-        if(isFull()) {
-            this.capacity *= 2;
-            Element[] temp = this.stack;
-            this.stack = (Element[])new Object[this.capacity];
+        this.capacity *= 2;
+        Element[] temp = this.stack;
+        this.stack = (Element[])new Object[this.capacity];
+
+        for(int i = 0; i < temp.length; i++) {
+            stack[i] = temp[i];
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Test for Stack structure.");
+        Stack<Integer> s = new ArrayBasedStack<>();
+
+        for(int index = 0; index < 10; index++) {
+            s.push(index);
+        }
+        System.out.println("Just print out the contents in structure.");
+        System.out.println(s);
+
+        s.pop();
+        s.push(100);
+        System.out.println("Print the stack");
+        System.out.println(s);
     }
 }
