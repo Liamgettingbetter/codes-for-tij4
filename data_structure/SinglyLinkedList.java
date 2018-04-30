@@ -37,17 +37,29 @@ public class SinglyLinkedList<Elem> {
         return head.getElement();
     }
 
+    /**
+     * show the last element in this list.
+     * @return element in the last position.
+     */
     public Elem last() {
         if(isEmpty()) return null;
         return tail.getElement();
     }
 
+    /**
+     * Insert a new element into the front of the list.
+     * @param first element being inserted in the front of the list.
+     */
     public void addFirst(Elem first) {
         head = new Node<>(first, head);
         if(isEmpty()) tail = head;
         size++;
     }
 
+    /**
+     * Insert a new element into the back of the linked-list.
+     * @param last element being inserted at the back.
+     */
     public void addLast(Elem last) {
         Node<Elem> temp = new Node<>(last, null);
         if(isEmpty()) head = temp;
@@ -56,6 +68,10 @@ public class SinglyLinkedList<Elem> {
         size++;
     }
 
+    /**
+     * remove the first element in the list.
+     * @return element that being removed.
+     */
     public Elem removeFirst() {
         if(isEmpty()) return null;
         Node<Elem> temp = head;
