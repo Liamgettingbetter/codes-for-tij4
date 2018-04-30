@@ -20,4 +20,7 @@ public interface Queue<Element> {
 
     /** return the first element and remove it from the queue. */
     Element dequeue();
+
+    /** Check whether the queue is full of elements. */
+    boolean isFull();
 }

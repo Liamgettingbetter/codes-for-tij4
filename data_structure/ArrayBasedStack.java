@@ -126,6 +126,7 @@ public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
             a[i] = s.pop();
     }
 
+    // Unit Test
     public static void main(String[] args) {
         System.out.println("Test for Stack structure.");
         Stack<Integer> s = new ArrayBasedStack<>();
