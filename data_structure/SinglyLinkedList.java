@@ -65,9 +65,20 @@ public class SinglyLinkedList<Elem> {
         return temp.getElement();
     }
 
+    /**
+     * Override the Object.toString() method to define our own version
+     * of toString() method.
+     * @return a String reference to an entire list.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
+        Node<Elem> temp = head;
+        while(temp != tail.getNext()) {
+            sb.append(temp.getElement()).append(", ");
+            temp = temp.getNext();
+        }
         return sb.toString();
     }
 
@@ -79,7 +90,7 @@ public class SinglyLinkedList<Elem> {
         for(int i = 0; i < 10; i++) {
             list.addFirst(i);
         }
-        //System.out.println("Print the list." + list);
+        System.out.println("Print the list : " + list);
 
     }
 }
