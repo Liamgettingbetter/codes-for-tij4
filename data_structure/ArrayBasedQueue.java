@@ -53,7 +53,32 @@ public class ArrayBasedQueue<Element> implements Queue<Element> {
     public void enqueue(Element element) throws IllegalStateException {
         if(isFull()) throw new IllegalStateException("The queue is already full.");
         int temp = (first + size) % data.length;
-        
+        data[temp] = element;
+        size++;
+    }
+
+    /**
+     * Return but not remove the first element of this queue. (null if empty)
+     * @return the first element in this queue.
+     */
+    @Override
+    public Element first() {
+        if(isEmpty()) return null;
+        return data[first];
+    }
+
+    /**
+     * Remove the first element in this queue. (null if empty)
+     * @return reference of the removed first element.
+     */
+    @Override
+    public Element dequeue() {
+        if(isEmpty()) return null;
+        Element result = data[first];
+        data[first] = null;
+        first = (first + 1) % data.length;
+        size--;
+        return result;
     }
 
 
