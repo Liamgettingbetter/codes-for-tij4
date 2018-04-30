@@ -64,4 +64,16 @@ public class SinglyLinkedList<Elem> {
         if(isEmpty()) tail = null;
         return temp.getElement();
     }
+
+    public static void main(String[] args) {
+        System.out.println("Let's try to test this list.");
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        System.out.println("TEST : Is this list empty : " + list.isEmpty());
+        System.out.println("Let's add our elements.");
+        for(int i = 0; i < 10; i++) {
+            list.addFirst(i);
+        }
+        System.out.println("")
+
+    }
 }
