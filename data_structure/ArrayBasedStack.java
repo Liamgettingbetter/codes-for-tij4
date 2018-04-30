@@ -1,5 +1,7 @@
 package data_structure;
 
+import java.util.Arrays;
+
 public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
     private int capacity;
     private int length;
@@ -109,6 +111,21 @@ public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
         }
     }
 
+    /**
+     * Using an inner stack structure to reverse an array.
+     * @param a an array with parameterised type.
+     * @param <Element> the parameterised type.
+     */
+    public static <Element> void reverse(Element[] a) {
+        Stack<Element> s = new ArrayBasedStack<>(a.length);
+        for(int i = 0; i < a.length; i++) {
+            s.push(a[i]);
+        }
+
+        for(int i = 0; i < a.length; i++)
+            a[i] = s.pop();
+    }
+
     public static void main(String[] args) {
         System.out.println("Test for Stack structure.");
         Stack<Integer> s = new ArrayBasedStack<>();
@@ -123,5 +140,9 @@ public class ArrayBasedStack<Element> implements Stack<Element>, Cloneable {
         s.push(100);
         System.out.println("Print the stack");
         System.out.println(s);
+
+        Integer[] temp = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        reverse(temp);
+        System.out.println(Arrays.toString(temp));
     }
 }

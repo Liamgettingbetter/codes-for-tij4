@@ -68,7 +68,7 @@ public class SinglyLinkedList<Elem> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        
+        return sb.toString();
     }
 
     public static void main(String[] args) {
@@ -79,7 +79,7 @@ public class SinglyLinkedList<Elem> {
         for(int i = 0; i < 10; i++) {
             list.addFirst(i);
         }
-        System.out.println("Print the list." + list);
+        //System.out.println("Print the list." + list);
 
     }
 }

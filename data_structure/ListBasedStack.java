@@ -7,7 +7,7 @@ package data_structure;
  * @param <Element> the element to be contained in this stack.
  * @author Hao Lei, Apr 29, 2018
  */
-public class ListBasedStack<Element> implements Stack<Element> {
+public abstract class ListBasedStack<Element> implements Stack<Element> {
 
     private static class Node<Element> {
         private Element element;
@@ -27,6 +27,8 @@ public class ListBasedStack<Element> implements Stack<Element> {
 
     ListBasedStack() { head = null; }
 
-    @Override
-    public int size() { }
+//    @Override
+//    public int size() {}
+
+
 }
