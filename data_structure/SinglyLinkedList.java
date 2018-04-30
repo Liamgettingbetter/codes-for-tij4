@@ -81,6 +81,7 @@ public class SinglyLinkedList<Elem> {
         }
         return sb.toString();
     }
+    
 
     public static void main(String[] args) {
         System.out.println("Let's try to test this list.");
