@@ -65,6 +65,12 @@ public class SinglyLinkedList<Elem> {
         return temp.getElement();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+    }
+
     public static void main(String[] args) {
         System.out.println("Let's try to test this list.");
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
@@ -73,7 +79,7 @@ public class SinglyLinkedList<Elem> {
         for(int i = 0; i < 10; i++) {
             list.addFirst(i);
         }
-        System.out.println("")
+        System.out.println("Print the list." + list);
 
     }
 }
