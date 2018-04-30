@@ -75,13 +75,14 @@ public class SinglyLinkedList<Elem> {
         StringBuilder sb = new StringBuilder();
 
         Node<Elem> temp = head;
-        while(temp != tail.getNext()) {
+        while(temp != tail) {
             sb.append(temp.getElement()).append(", ");
             temp = temp.getNext();
         }
+        sb.append(temp.getElement());
         return sb.toString();
     }
-    
+
 
     public static void main(String[] args) {
         System.out.println("Let's try to test this list.");
