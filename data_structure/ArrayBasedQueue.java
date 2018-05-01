@@ -32,7 +32,6 @@ public class ArrayBasedQueue<Element> implements Queue<Element> {
     }
 
 
-    @Override
     public boolean isFull() {
         return this.size == data.length;
     }

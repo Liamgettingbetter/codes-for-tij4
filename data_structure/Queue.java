@@ -22,5 +22,5 @@ public interface Queue<Element> {
     Element dequeue();
 
     /** Check whether the queue is full of elements. */
-    boolean isFull();
+    // boolean isFull(); --- should not be used in link-based queue implementation.
 }
