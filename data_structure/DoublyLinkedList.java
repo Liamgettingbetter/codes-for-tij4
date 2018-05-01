@@ -32,10 +32,16 @@ public class DoublyLinkedList<Element> implements Cloneable {
             }
         }
 
-//        @Override
-//        public Node<Element> clone() throws CloneNotSupportedException {
-//
-//        }
+        @Override
+        public Object clone() throws CloneNotSupportedException {
+            super.clone();
+
+            Node<Element> result = new Node<>();
+            result.prev = (Node<Element>)this.prev.clone();
+            result.content = this.content;
+            result.next = (Node<Element>)this.next.clone();
+            return result;
+        }
     }
 
     private Node<Element> header = null;
@@ -130,6 +136,10 @@ public class DoublyLinkedList<Element> implements Cloneable {
         trailer.setPrevNode(new_node);
     }
 
+    /**
+     * Override Object.toString() class to define our own version.
+     * @return a String object indicating all of the elements in this list.
+     */
     @Override
     public String toString() {
         // System.out.print("This doubly-linked list contains : ");
@@ -169,10 +179,6 @@ public class DoublyLinkedList<Element> implements Cloneable {
             }
         }
     }
-
-//    public Object clone(DoublyLinkedList<Element> list) {
-//
-//    }
 
     public static void main(String[] args) {
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
