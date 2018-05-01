@@ -78,4 +78,40 @@ public class CircularlyLinkedList<Elem> {
         size--;
         return head.getElement();
     }
+
+    /**
+     * Override Object.toString() method to define specific implementation.
+     * @return a String representing the element list in String object.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        Node<Elem> temp = tail.getNext();
+        while(temp != tail) {
+            sb.append(temp.getElement()).append(", ");
+        }
+        sb.append(tail.getElement());
+        return sb.toString();
+    }
+
+    // Unit Test
+    public static void main(String[] args) {
+        CircularlyLinkedList<Integer> list = new CircularlyLinkedList<>();
+        System.out.println("Test whether circularly-linked list is empty : " + list.isEmpty());
+
+        list.addFirst(12);
+        // list.addLast(22);
+        System.out.println("Add two integer numbers : " + list);
+
+        System.out.println("The size of this cirlcularly-linked list is : " + list.size());
+
+        System.out.println("The first element of this list is " + list.first());
+
+        //System.out.println("The last element of this list is " + list.last());
+
+        list.rotate();
+        System.out.println("After rotation, the list becomes : " + list);
+
+    }
 }

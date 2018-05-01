@@ -1,8 +1,8 @@
 package data_structure;
 
-public class ListBasedQueue<Element extends Cloneable> implements Queue<Element> {
+public class ListBasedQueue<Element> implements Queue<Element> {
 
-    private static class Node<Element extends Cloneable> implements Cloneable {
+    private static class Node<Element> implements Cloneable {
         private Element element;
         private Node<Element> next;
 
@@ -54,7 +54,7 @@ public class ListBasedQueue<Element extends Cloneable> implements Queue<Element>
     public void enqueue(Element elem) {
         if(isEmpty()) {
             Node<Element> temp = new Node<>(elem, tail);
-            head.setNext(temp);
+            head = temp;
         }
         else {
             Node<Element> temp = new Node<>(elem, tail);
@@ -82,12 +82,37 @@ public class ListBasedQueue<Element extends Cloneable> implements Queue<Element>
         else {
             Node<Element> temp = head;
             if(--size == 0) head = tail = null;
-            
+            else {
+                head = head.getNext();
+            }
+            return temp.getElement();
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node<Element> temp = head;
+        while(temp != tail) {
+            sb.append(temp.getElement()).append(", ");
+            temp = temp.getNext();
+        }
+        sb.append(temp.getElement());
+        return sb.toString();
     }
 
 
     public static void main(String[] args) {
+        ListBasedQueue<Integer> queue = new ListBasedQueue<>();
+        System.out.println("Initialize an empty queue : isEmpty() -> " + queue.isEmpty());
 
+        queue.enqueue(12);
+        queue.enqueue(20);
+        System.out.println("Now show the content of this queue.");
+        System.out.println(queue);
+
+        System.out.println("The first element of this queue is " + queue.first());
+
+        queue.dequeue();
     }
 }
