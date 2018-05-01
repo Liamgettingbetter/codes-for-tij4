@@ -5,7 +5,7 @@ package data_structure;
  * inserted and removed at both ends; this interface is a simplified version of java.util.Deque.
  * @param <Element> a parameterised type representing the element being put into the deque.
  */
-public interface DoublEndedQueue<Element> {
+public interface DoubleEndedQueue<Element> {
     /** Insert a new element e at the front of the deque. */
     void addFirst(Element e);
 
