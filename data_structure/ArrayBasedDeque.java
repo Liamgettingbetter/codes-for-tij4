@@ -25,6 +25,11 @@ public class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
 
         container = (Element[])new Object[capacity * 2];
 
+        for(int index = 0; index < capacity; index++) {
+            container[index] = temp[index];
+        }
+
+        this.capacity *= 2;
     }
 
 
@@ -39,13 +44,18 @@ public class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
         if(isFull()) throw new IllegalStateException("This deque is full of elements.");
 
         int index = first + current_size;
-        if(index > capacity) {
-            container[index % capacity] = e;
+        if(index >= capacity) {
             first = (first - 1 + capacity) % capacity;
         }
-        else {
-            container[index % capacity] = e;
-        }
+
+        container[index % capacity] = e;
+    }
+
+    @Override
+    public void addLast(Element e) throws IllegalStateException {
+        if(isFull()) throw new IllegalStateException("This deque is full of elements.");
+
+        int index = first + current_size;
 
 
     }
@@ -53,10 +63,21 @@ public class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
     @Override
     public Element removeFirst() throws IllegalStateException {
         if(isEmpty()) throw new IllegalStateException("This deque is empty.");
-        int index = first + current_size;
-        if(index > capacity) {
-            container[index % capacity] =
+
+        Element temp = null;
+        if(first == capacity - 1) {
+            temp = container[first];
+            first = (first + 1) % capacity;
         }
+
+        return temp;
+    }
+
+    @Override
+    public Element removeLast() throws IllegalStateException {
+        if(isEmpty()) throw new IllegalStateException("This deque is empty.");
+
+        Element temp = null;
     }
 
     public static void main(String[] args) {
