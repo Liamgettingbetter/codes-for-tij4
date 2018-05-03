@@ -81,6 +81,8 @@ public class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
     }
 
     public static void main(String[] args) {
+        System.out.println("Test Cases for Deque.");
+        ArrayBasedDeque<Integer> test = new ArrayBasedDeque<>();
 
     }
 }
