@@ -43,5 +43,6 @@ class Node<Element> implements Cloneable {
     @Override
     public boolean equals(Object obj) {
         super.equals(obj);
+
     }
 }
