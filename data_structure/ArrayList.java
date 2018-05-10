@@ -26,7 +26,7 @@ public class ArrayList<Element> implements List<Element> {
     public Element get(int i) throws IndexOutOfBoundsException {
         if(i > current_size) throw new IndexOutOfBoundsException("argument i is out of array index bound.");
 
-        
+
     }
 
     @Override
