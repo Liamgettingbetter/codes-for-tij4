@@ -1,6 +1,11 @@
 package data_structure;
 
+/**
+ * An general-purpose Node structure implementation.
+ * @param <Element> parameterised type used to denote the element type.
+ */
 class Node<Element> implements Cloneable {
+
     private Element element;
     private Node<Element> next;
 
@@ -40,9 +45,9 @@ class Node<Element> implements Cloneable {
         return result;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        super.equals(obj);
+    public boolean equals(Node<Element> n) {
+        super.equals(n);
+
 
     }
 }
