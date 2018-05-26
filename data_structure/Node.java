@@ -45,9 +45,9 @@ class Node<Element> implements Cloneable {
         return result;
     }
 
-    public boolean equals(Node<Element> n) {
-        super.equals(n);
-
-
-    }
+//    public boolean equals(Node<Element> n) {
+//        super.equals(n);
+//
+//
+//    }
 }

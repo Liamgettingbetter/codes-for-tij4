@@ -26,10 +26,16 @@ public class ArrayList<Element> implements List<Element> {
         System.arraycopy(temp, 0, container, 0, temp.length);
     }
 
+    // Utility method for swapping two elements in the array.
+    private void swap(Element temporal, Element actual) {
+        Element temp = temporal;
+        temporal = actual;
+        actual = temp;
+    }
+
     // Utility method
     private void checkIndex(int i, int j) throws IndexOutOfBoundsException {
-        if(i < 0 || i >= j)
-            throw new IndexOutOfBoundsException("The index is out of bound.");
+        if(i < 0 || i >= j) throw new IndexOutOfBoundsException("The index is out of bound.");
     }
 
     /**
@@ -50,10 +56,9 @@ public class ArrayList<Element> implements List<Element> {
      * Return the Element in this ArrayList at position i.
      * @param i the position to retrieve value.
      * @return Element at the position i.
-     * @throws IndexOutOfBoundsException throws this if i is out of range.
      */
     @Override
-    public Element get(int i) throws IndexOutOfBoundsException {
+    public Element get(int i) {
         checkIndex(i, current_size);
         return container[i];
     }
@@ -63,10 +68,9 @@ public class ArrayList<Element> implements List<Element> {
      * @param elem the element put into this ArrayList.
      * @param i the index used to denote the position.
      * @return the original element at position i.
-     * @throws IndexOutOfBoundsException if i is either less than 0 or greater than / equal to current_size.
      */
     @Override
-    public Element set(Element elem, int i) throws IndexOutOfBoundsException {
+    public Element set(Element elem, int i) {
         checkIndex(i, current_size);
 
         Element result = container[i];
@@ -74,39 +78,42 @@ public class ArrayList<Element> implements List<Element> {
         return result;
     }
 
-    private void swap(Element temporal, Element actual) {
-        Element temp = temporal;
-        temporal = actual;
-        actual = temp;
-    }
-
     /**
-     * Add one element in position i and shift all elements behind i at one step.
+     * Add one element in position i and shift all elements behind i with one-step.
      * @param e element to be added in this ArrayList.
      * @param i the index denoting the position.
-     * @throws IndexOutOfBoundsException if i is either less than 0 or greater than/equal to current_size.
      */
     @Override
-    public void add(Element e, int i) throws IndexOutOfBoundsException {
+    public void add(Element e, int i) {
         checkIndex(i, current_size);
 
-            for(int index = current_size; index >= i; index--) {
+        for(int index = current_size; index >= i; index--) {
+            swap(container[index+1], container[index]);
+        }
 
-            }
+        container[i] = e;
+        current_size++;
     }
 
     /**
-     * Remove one element
-     * @param i
-     * @return
-     * @throws IndexOutOfBoundsException
+     * Remove one element from this array.
+     * @param i the index at which the element will be removed.
+     * @return the element removed from this array.
      */
     @Override
-    public Element remove(int i) throws IndexOutOfBoundsException {
+    public Element remove(int i) {
+        checkIndex(i, current_size);
 
+        Element result = container[i];
+
+        for(int index = i; index < current_size; index++) {
+            swap(container[index], container[index+1]);
+        }
+        current_size--;
+        return result;
     }
 
     public static void main(String[] args) {
-
+        
     }
 }
