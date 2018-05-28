@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.queue;
 
 /**
  * Interface for a double-ended queue : a collection of elements that can be

@@ -1,4 +1,6 @@
-package data_structure;
+package data_structure.queue;
+
+import data_structure.queue.Queue;
 
 /**
  * This is the implementation of Queue using array as the infrastructure.

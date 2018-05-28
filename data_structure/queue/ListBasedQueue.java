@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.queue;
 
 public class ListBasedQueue<Element> implements Queue<Element> {
 

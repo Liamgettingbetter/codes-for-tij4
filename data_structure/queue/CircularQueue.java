@@ -1,4 +1,6 @@
-package data_structure;
+package data_structure.queue;
+
+import data_structure.queue.Queue;
 
 public interface CircularQueue<Element> extends Queue<Element> {
     /**

@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.queue;
 
 /**
  * The interface of a special data structure --- queue.

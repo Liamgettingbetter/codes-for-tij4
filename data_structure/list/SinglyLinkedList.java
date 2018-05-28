@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.list;
 
 /**
  *  Create an abstract data type for classic data

@@ -1,5 +1,7 @@
 package data_structure;
 
+import data_structure.list.List;
+
 public class ArrayList<Element> implements List<Element> {
 
     private static final int DEFAULT_CAPACITY = 20;
@@ -113,7 +115,18 @@ public class ArrayList<Element> implements List<Element> {
         return result;
     }
 
+    // UNIT TEST STUB.
     public static void main(String[] args) {
-        
+        ArrayList<Integer> test = new ArrayList<>(20);
+
+        // Test Case 1 --- size()
+        System.out.println(test.size());
+
+        // Test Case 2 --- isEmpty()
+        System.out.println(test.isEmpty());
+
+        // Test Case 3 --- add()
+        test.add(3, 0);
+        System.out.println(test);
     }
 }

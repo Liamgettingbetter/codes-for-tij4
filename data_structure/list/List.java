@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.list;
 
 /**
  * The List interface to be implemented.

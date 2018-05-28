@@ -1,6 +1,8 @@
-package data_structure;
+package data_structure.queue;
 
-public class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
+import data_structure.queue.DoubleEndedQueue;
+
+public abstract class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
 
     /** Set default capacity for default construction of ArrayBasedDeque. */
     private static final int DEFAULT_CAPACITY = 100;
@@ -73,16 +75,16 @@ public class ArrayBasedDeque<Element> implements DoubleEndedQueue<Element> {
         return temp;
     }
 
-    @Override
-    public Element removeLast() throws IllegalStateException {
-        if(isEmpty()) throw new IllegalStateException("This deque is empty.");
-
-        Element temp = null;
-    }
+//    @Override
+//    public Element removeLast() throws IllegalStateException {
+//        if(isEmpty()) throw new IllegalStateException("This deque is empty.");
+//
+//        Element temp = null;
+//    }
 
     public static void main(String[] args) {
         System.out.println("Test Cases for Deque.");
-        ArrayBasedDeque<Integer> test = new ArrayBasedDeque<>();
+        //ArrayBasedDeque<Integer> test = new ArrayBasedDeque<>();
 
     }
 }

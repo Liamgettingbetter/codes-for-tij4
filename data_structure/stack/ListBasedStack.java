@@ -1,4 +1,6 @@
-package data_structure;
+package data_structure.stack;
+
+import data_structure.stack.Stack;
 
 /**
  * The implementation of linked-list based stack, and the distinct feature of which
