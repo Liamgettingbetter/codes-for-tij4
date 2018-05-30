@@ -165,4 +165,39 @@ public class LinkedPositionalList<Element> implements PositionalList<Element> {
         node.setNext(null);
         return result;
     }
+
+    /**
+     * Override toString() method in the base Object class.
+     * @return a String denoting all the elements in this LinkedPositionalList.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node<Element> iterator = header.getNext();
+        while(iterator != trailer.getPrev()) {
+            sb.append(iterator.getElement()).append(", ");
+            iterator = iterator.getNext();
+        }
+        sb.append(iterator.getElement()).append("\n");
+        return sb.toString();
+    }
+
+    // Unit Test
+    public static void main(String[] args) {
+        System.out.println("Create an LinkedPositionalList container object with Integers in it.");
+        LinkedPositionalList<Integer> test = new LinkedPositionalList<>();
+
+        // Test case 1 --- size()
+        System.out.println("The size of this list : " + test.size());
+
+        // Test case 2 --- isEmpty()
+        System.out.println("Is the list an empty list : " + test.isEmpty());
+
+        // Test case 3 --- addFirst()
+        System.out.println("First, let's add 10 integer element into this list.");
+        for(int index = 0; index < 10; index++) {
+            test.addFirst(index);
+        }
+        System.out.println("The list elements are " + test);
+    }
 }
