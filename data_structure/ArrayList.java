@@ -1,8 +1,10 @@
 package data_structure;
 
+import data_structure.Iterator.Iterable;
+import data_structure.Iterator.Iterator;
 import data_structure.list.List;
 
-public class ArrayList<Element> implements List<Element> {
+public class ArrayList<Element> implements List<Element>, Iterable<Element> {
 
     private static final int DEFAULT_CAPACITY = 20;
 
@@ -16,6 +18,56 @@ public class ArrayList<Element> implements List<Element> {
         this.container = (Element[])new Object[capacity];
         this.capacity = capacity;
         this.current_size = 0;
+    }
+
+    // Inner Iterator class
+    private class ArrayIterator<Element> implements Iterator<Element> {
+
+        private int next_to_return = 0;     // index of the next element to be returned.
+        private boolean removable = false;  // whether remove() can be called at this time?
+
+
+        /** Check whether the iterator comes to the end of the list. */
+        @Override
+        public boolean hasNext() {
+            return next_to_return < current_size;
+        }
+
+        /**
+         * Returns the next element in this list,
+         * if there are still some elements that have not been iterated through.
+         * @return the Next Element in this list.
+         */
+        @Override
+        public Element next() {
+            if(hasNext()) {
+                removable = true;
+                return (Element) container[next_to_return++];
+            }
+            return null;
+        }
+
+        /**
+         * Removes the element returned by most recent call to next.
+         * @throws IllegalStateException if next has not been called yet.
+         * @throws IllegalStateException if remove was already called since recent next.
+         */
+        @Override
+        public void remove() throws IllegalStateException {
+            if(!removable) throw new IllegalStateException("Nothing to remove.");
+            ArrayList.this.remove(next_to_return - 1);
+            next_to_return--;
+            removable = false;
+        }
+    }
+
+    /**
+     * Returns an ArrayIterator for this ArrayList to iterate through each element.
+     * @return an ArrayIterator.
+     */
+    @Override
+    public Iterator<Element> iterator() {
+        return new ArrayIterator<>();       // create a new instance of the inner class.
     }
 
     // Utility method to resize the array.
@@ -87,12 +139,11 @@ public class ArrayList<Element> implements List<Element> {
      */
     @Override
     public void add(Element e, int i) {
-        checkIndex(i, current_size);
+        checkIndex(i, current_size + 1);
 
         for(int index = current_size; index >= i; index--) {
-            swap(container[index+1], container[index]);
+            swap(container[index + 1], container[index]);
         }
-
         container[i] = e;
         current_size++;
     }
@@ -115,6 +166,20 @@ public class ArrayList<Element> implements List<Element> {
         return result;
     }
 
+    /**
+     * Overrides the toString method to print all the elements in the list.
+     * @return a String denoting all the elements in the list.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(int index = 0; index < current_size - 1; index++) {
+            sb.append(container[index]).append(", ");
+        }
+        sb.append(container[current_size - 1]);
+        return sb.toString();
+    }
+
     // UNIT TEST STUB.
     public static void main(String[] args) {
         ArrayList<Integer> test = new ArrayList<>(20);
@@ -126,7 +191,10 @@ public class ArrayList<Element> implements List<Element> {
         System.out.println(test.isEmpty());
 
         // Test Case 3 --- add()
-        test.add(3, 0);
+        System.out.println("Let's add some new elements in this list.");
+        for(int index = 0; index < test.capacity - 1; index++) {
+            test.add(index, index);
+        }
         System.out.println(test);
     }
 }
