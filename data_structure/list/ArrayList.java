@@ -140,8 +140,8 @@ public class ArrayList<Element> implements List<Element>, Iterable<Element> {
     public void add(Element e, int i) {
         checkIndex(i, current_size + 1);
 
-        for(int index = current_size; index >= i; index--) {
-            swap(container[index + 1], container[index]);
+        for(int index = current_size; index > i; index--) {
+            swap(container[index], container[index-1]);
         }
         container[i] = e;
         current_size++;
@@ -191,7 +191,7 @@ public class ArrayList<Element> implements List<Element>, Iterable<Element> {
 
         // Test Case 3 --- add()
         System.out.println("Let's add some new elements in this list.");
-        for(int index = 0; index < test.capacity - 1; index++) {
+        for(int index = 0; index < test.capacity; index++) {
             test.add(index, index);
         }
         System.out.println(test);
