@@ -12,11 +12,11 @@ public interface Queue<Element> {
     /** check if the queue is empty. */
     boolean isEmpty();
 
-    /** inserts an element at the rear of the queue. */
-    void enqueue(Element element);
-
     /** return the first element in this queue. */
     Element first();
+
+    /** inserts an element at the rear of the queue. */
+    void enqueue(Element element);
 
     /** return the first element and remove it from the queue. */
     Element dequeue();

@@ -1,7 +1,7 @@
 package data_structure.list;
 
-import data_structure.Iterator.Iterable;
-import data_structure.Iterator.Iterator;
+import data_structure.iterator.Iterable;
+import data_structure.iterator.Iterator;
 
 public class ArrayList<Element> implements List<Element>, Iterable<Element> {
 

@@ -1,4 +1,4 @@
-package data_structure.Iterator;
+package data_structure.iterator;
 
 /** A simple interface comprising the methods for moving to the next elements in the list. */
 public interface Iterator<Element> {

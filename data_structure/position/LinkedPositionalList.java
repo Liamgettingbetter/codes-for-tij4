@@ -1,5 +1,10 @@
 package data_structure.position;
 
+import data_structure.iterator.Iterable;
+import data_structure.iterator.Iterator;
+
+import java.util.NoSuchElementException;
+
 public class LinkedPositionalList<Element> implements PositionalList<Element> {
 
     // Nested Node class for the doubly-linked list.
@@ -51,6 +56,59 @@ public class LinkedPositionalList<Element> implements PositionalList<Element> {
         header.setNext(trailer);
     }
 
+    // Inner Iterator class.
+    private class PositionIterator implements Iterator<Position<Element>> {
+        private Position<Element> cursor = first();     // position of the next element to report
+        private Position<Element> recent = null;        // position of last reported element
+
+        /** Tests whether the iterator has a next object. */
+        @Override
+        public boolean hasNext() { return cursor != null; }
+
+        /** Returns the next position in the iterator. */
+        @Override
+        public Position<Element> next() throws NoSuchElementException {
+            if(cursor == null) throw new NoSuchElementException("Nothing remains in the list.");
+            recent = cursor;
+            cursor = after(cursor);
+            return recent;
+        }
+
+        /** Removes the element returned by most recent call to next. */
+        @Override
+        public void remove() throws IllegalStateException {
+            if(recent == null) throw new IllegalStateException("Nothing to remove.");
+            LinkedPositionalList.this.remove(recent);
+            recent = null;
+        }
+    }
+
+    // Inner Iterable class.
+    private class PositionIterable implements Iterable<Position<Element>> {
+        public Iterator<Position<Element>> iterator() { return new PositionIterator(); }
+    }
+
+    // Nested ElementIterator class
+    /** This class adapts the iteration produced by positions() to return elements. */
+    private class ElementIterator implements Iterator<Element> {
+        Iterator<Position<Element>> iterator = new PositionIterator();
+
+        // All three methods below are the delegation for ElementIterator.
+        @Override
+        public boolean hasNext() { return iterator.hasNext(); }
+
+        @Override
+        public Element next() { return iterator.next().getElement(); }
+
+        @Override
+        public void remove() { iterator.remove(); }
+    }
+
+    /** Returns an iterator of the elements stored in the list. */
+    public Iterator<Element> iterator() {
+        return new ElementIterator();
+    }
+
     // Private Utilities
 
     /** Validates the position and returns it as a node. */
@@ -65,6 +123,11 @@ public class LinkedPositionalList<Element> implements PositionalList<Element> {
     private Position<Element> position(Node<Element> node) {
         if(node == header || node == trailer) return null;
         return node;        // automatically upcast to Position object.
+    }
+
+    /** Returns an iterable representation of the list's positions. */
+    public Iterable<Position<Element>> positions() {
+        return new PositionIterable();
     }
 
     // Public Accessor methods
@@ -199,5 +262,9 @@ public class LinkedPositionalList<Element> implements PositionalList<Element> {
             test.addFirst(index);
         }
         System.out.println("The list elements are " + test);
+
+        // Test case 4 --- addLast()
+        System.out.println("Then, let's add 10 integer element from the back of the list.");
+        //test.remove()
     }
 }
