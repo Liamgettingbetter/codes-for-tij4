@@ -41,5 +41,6 @@ public interface Tree<Element> extends Iterable<Element>, Position<Element> {
     /** Returns an iterator for all elements in the tree (so that the tree itself is Iterable). */
     Iterator<Element> iterator();
 
-    /** */
+    /** Returns an iterable collection of all positions of the tree. */
+    Iterable<Position<Element>> positions();
 }
